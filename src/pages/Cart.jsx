@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { removeFromCart, updateQuantity } from "../store/cartSlice";
 import { Trash2, ArrowRight, ShoppingBag } from "lucide-react";
 
+// Shopping cart page with item management
 const Cart = () => {
   const { items, totalAmount } = useSelector((state) => state.cart);
   const dispatch = useDispatch();

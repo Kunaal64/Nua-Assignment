@@ -6,6 +6,7 @@ import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 
+// Main app component with routing setup
 function App() {
   return (
     <Router>

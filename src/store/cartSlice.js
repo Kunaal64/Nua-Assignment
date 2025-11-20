@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// Load cart state from localStorage
 const loadCartFromStorage = () => {
   try {
     const serializedState = localStorage.getItem('cart');
@@ -22,6 +23,7 @@ const loadCartFromStorage = () => {
 
 const initialState = loadCartFromStorage();
 
+// Redux slice for cart state management
 const cartSlice = createSlice({
   name: 'cart',
   initialState,

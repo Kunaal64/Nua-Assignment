@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { ShoppingCart, Store } from "lucide-react";
 
+// Navigation bar with cart indicator
 const Navbar = () => {
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 

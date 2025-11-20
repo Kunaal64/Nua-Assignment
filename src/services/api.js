@@ -7,8 +7,9 @@ const api = axios.create({
 });
 
 const CACHE_KEY_PREFIX = 'ecommerce_cache_';
-const CACHE_EXPIRY = 1000 * 60 * 5; // 5 minutes
+const CACHE_EXPIRY = 1000 * 60 * 5;
 
+// Get cached data from localStorage
 const getCachedData = (key) => {
   const cached = localStorage.getItem(CACHE_KEY_PREFIX + key);
   if (cached) {
@@ -20,6 +21,7 @@ const getCachedData = (key) => {
   return null;
 };
 
+// Save data to localStorage cache
 const setCachedData = (key, data) => {
   localStorage.setItem(
     CACHE_KEY_PREFIX + key,
@@ -27,6 +29,7 @@ const setCachedData = (key, data) => {
   );
 };
 
+// Fetch all products with caching
 export const fetchProducts = async () => {
   const cacheKey = 'products';
   const cached = getCachedData(cacheKey);
@@ -37,6 +40,7 @@ export const fetchProducts = async () => {
   return response.data;
 };
 
+// Fetch single product by ID with caching
 export const fetchProductById = async (id) => {
   const cacheKey = `product_${id}`;
   const cached = getCachedData(cacheKey);
@@ -47,6 +51,7 @@ export const fetchProductById = async (id) => {
   return response.data;
 };
 
+// Fetch product categories with caching
 export const fetchCategories = async () => {
   const cacheKey = 'categories';
   const cached = getCachedData(cacheKey);
@@ -57,6 +62,7 @@ export const fetchCategories = async () => {
   return response.data;
 };
 
+// Fetch products by category with caching
 export const fetchProductsByCategory = async (category) => {
   const cacheKey = `products_category_${category}`;
   const cached = getCachedData(cacheKey);

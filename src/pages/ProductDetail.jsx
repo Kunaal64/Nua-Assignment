@@ -6,6 +6,7 @@ import { addToCart } from "../store/cartSlice";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { Star, ShoppingCart, ArrowLeft } from "lucide-react";
 
+// Product detail page with add to cart functionality
 const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -16,6 +17,7 @@ const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
+    // Fetch product details by ID
     const loadProduct = async () => {
       try {
         setLoading(true);
@@ -30,10 +32,10 @@ const ProductDetail = () => {
     loadProduct();
   }, [id]);
 
+  // Add product to cart with selected quantity
   const handleAddToCart = () => {
     if (product) {
       dispatch(addToCart({ ...product, quantity }));
-      // Optional: Show a toast notification
     }
   };
 

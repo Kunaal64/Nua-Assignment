@@ -8,6 +8,7 @@ import ProductCard from "../components/ProductCard";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { Search } from "lucide-react";
 
+// Home page component with product listing and filtering
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -17,6 +18,7 @@ const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
 
   useEffect(() => {
+    // Load initial products and categories
     const loadData = async () => {
       try {
         setLoading(true);
@@ -36,6 +38,7 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
+    // Load products by selected category
     const loadCategoryProducts = async () => {
       if (!selectedCategory) {
         const data = await fetchProducts();
@@ -53,12 +56,12 @@ const Home = () => {
       }
     };
 
-    // Only trigger if we are not in the initial load
     if (categories.length > 0) {
       loadCategoryProducts();
     }
   }, [selectedCategory]);
 
+  // Filter products by search term
   const filteredProducts = products.filter((product) =>
     product.title.toLowerCase().includes(searchTerm.toLowerCase())
   );

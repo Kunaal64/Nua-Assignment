@@ -1,6 +1,7 @@
 import React from "react";
 import { Loader2 } from "lucide-react";
 
+// Simple loading spinner component
 const LoadingSpinner = () => {
   return (
     <div className="flex justify-center items-center py-12">

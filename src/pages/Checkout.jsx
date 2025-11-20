@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { clearCart } from "../store/cartSlice";
 import { CheckCircle } from "lucide-react";
 
+// Checkout page with form validation and order placement
 const Checkout = () => {
   const { items, totalAmount } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -16,8 +17,8 @@ const Checkout = () => {
   } = useForm();
   const [orderPlaced, setOrderPlaced] = React.useState(false);
 
+  // Handle form submission and clear cart
   const onSubmit = (data) => {
-    // Simulate API call
     setTimeout(() => {
       dispatch(clearCart());
       setOrderPlaced(true);
@@ -33,9 +34,7 @@ const Checkout = () => {
         <h2 className="text-3xl font-bold text-gray-800 mb-4">
           Order Placed Successfully!
         </h2>
-        <p className="text-gray-500 mb-8">
-          Thank you for your purchase.
-        </p>
+        <p className="text-gray-500 mb-8">Thank you for your purchase.</p>
         <button
           onClick={() => navigate("/")}
           className="inline-block bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors"

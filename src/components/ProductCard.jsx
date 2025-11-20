@@ -4,11 +4,13 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../store/cartSlice";
 import { Plus } from "lucide-react";
 
+// Product card component for grid display
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
 
+  // Add product to cart from card
   const handleAddToCart = (e) => {
-    e.preventDefault(); // Prevent navigation if clicking the button
+    e.preventDefault();
     dispatch(addToCart({ ...product, quantity: 1 }));
   };
 
